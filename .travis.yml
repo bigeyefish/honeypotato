@@ -1,6 +1,6 @@
 language: java
 addons:
-  ssh_known_hosts: $HOSTIP 
+  ssh_known_hosts: ${HOSTIP}
 jdk:
 - oraclejdk8
 script: mvn clean package -Dmaven.test.skip=true
