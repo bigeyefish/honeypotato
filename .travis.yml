@@ -11,7 +11,7 @@ branches:
 notifications:
   email:
     recipients:
-    - secure: "NxCQ+Cjh1pC0NVmb+5D0VPlGfMM0F8nKWgpVmgnZm0iVGLSI05ra9KuJfrs0FqkdndSS0eFK4bANNdswyEeCUfmC4tjQwFNPHFP+IgdgOlCFgeqMo8ZelhRq+SOuo7p6m8wsxavPR8mrKfF/57XuDy5xGzuaS9fmiqepb3TK8z7gx9UJXnS0sVT04Q01d54fRKeHaxC4azKBRqQA+jryAotwlcWKDbKeFIXe7YAVrmPryeVq5kan8rIMkfHAZJv/3D/Cie/nEJGQCCgAEvttlFYMMymm9kHLrhzxJpHcvdoZOTSC3M3WPIqnAmKngIweFdkOJDIoEKnrltYX3OQdAXtTUJYoT2KVeIs5be4eZJmc7BvYTuUlyWnFpVvztkSgJ3JfdHI+XOFEdS/GvtuDB7z0Rbe4d5R9Cf7rCVfGXfNAveLivfa2h/o4Kh97ymxKHI3ak1f8p/INvpozKZypBQ5Hwu31JvQkmftZTJNRCXdKB1fQWviwjX6iWz401zFz4KEXpFtox12ScChxuGvrD9qSSBRz0+pLVTN6moT710xe1MAV3XjWU8ygulgco+bpz36ijYEHmSuOxLY0wNR06a7R/PRkBoC9pn254Jcn00X2yRWYIqbbtstrnofup8kJGJmkDNL8yrKSHSTnElBMo7Hd0mVP8mM5AEbQYTTBWrM="
+    - EMAIL
     on_success: always
     on_failure: always
 after_success:
@@ -20,3 +20,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_decfd95f65ce_key -iv $encrypted_decfd95f65ce_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
+env:
+  global:
+  # sshpass 需要
+  - secure: xBeVhpH/h0ttyGpUrYuO0DyUDfdvHu0yc/VJSTmlj1rebdO15dSPuKP9VIaOZYy+bkaATwx3j0nDGc0cx1hgw6ufNBSazSQN5m+ZUx++e1HYkjot4eANc96CqZUTRdosCzj+4Xsik3Miyzw7552f04rOZjwBUVee2XPjmO5fObSQvZEaPtcc7H1d8EF8qIrjGsiycbCN1FQuZdikWiZ5769F62NsiYPMQk4ZFn6TTMQXjsqZMljMDt/hT+Qha0PiNWIOGf/FW1pnLVaHYsilkkP4GDEwnhsZ1S6zW80quwOyP5hS8Lysbxq1Z8HQRy3uK9Srt15jL0FA6OztqlgNsduMNHUxaFDAcn/PxdE4g4zhDk6cD90KgE45IPus8+2a2VyP5q3Lrc3Y/pI+mYyEu7YtOiYEhHQO+HSFTXSmeGGtco+he/rZeJLmUN5F3Q/paIAvuLjPOhPT7olr4uOP33VZSlkmQv+bG/5o2i3Kr9f81jSuLvGDhdMRya0OMw33YaBDg19ybOht4krh/wwe6aM9HS4Rx+pc96vsAcC2LM2wwiTwh5+c216ATpe3GLBeKd1csn6eCG3+yKt/xci6p1jFjkrb28zz4SAlyC6XfCKfYQ8AwCo3Dh0xxzk02xxrbrqSO3bBU1yff0f81zuK8BAmtRrnIC+BflCfIBQTtkA=
