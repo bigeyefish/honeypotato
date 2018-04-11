@@ -1,0 +1,10 @@
+server:
+  port: 9101
+spring:
+  application:
+    name: order-service
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://ali-server2:9000/eureka

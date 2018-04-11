@@ -4,7 +4,7 @@ eureka:
   instance:
     hostname: ali-server2
   client:
-    # register-with-eureka: false
-    # fetch-registry: false
-    serviceUrl:
-      defaultZone: http://ali-server1:9000/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+    # serviceUrl:
+    #  defaultZone: http://ali-server1:9000/eureka/
