@@ -1,0 +1,13 @@
+server:
+  port: 9101
+  application:
+    name: order-service
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://ali-server2:9000/eureka
+spring:
+  data:
+    mongodb:
+      uri: mongodb://order:123456@ali-server2:27017/order

@@ -20,5 +20,6 @@
     <modules>
         <module>base-services</module>
         <module>eureka-server</module>
+        <module>common</module>
     </modules>
 </project>
