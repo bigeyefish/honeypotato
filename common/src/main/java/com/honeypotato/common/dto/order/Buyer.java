@@ -1,4 +1,4 @@
-package com.honeypotato.common.bean.order;
+package com.honeypotato.common.dto.order;
 
 import org.springframework.data.annotation.Id;
 

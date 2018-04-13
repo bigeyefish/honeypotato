@@ -2,9 +2,9 @@ server:
   port: 9000
 eureka:
   instance:
-    hostname: ali-server1
+    hostname: eureka-server
   client:
     register-with-eureka: false
     fetch-registry: false
-    #serviceUrl:
-    #  defaultZone: http://ali-server2:9000/eureka/
+    serviceUrl:
+      defaultZone: http://127.0.0.1:${server.port}}/eureka/

@@ -1,13 +1,18 @@
 package com.honeypotato.common.iservice.order;
 
-import com.honeypotato.common.bean.order.Buyer;
+import com.honeypotato.common.dto.order.Buyer;
 import com.honeypotato.common.iservice.ICommonService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 /**
  * Created by sanyihwang on 2018/4/12.
  */
+@RequestMapping("/buyer")
 public interface IBuyerService extends ICommonService<Buyer> {
 
     /**
@@ -15,13 +20,15 @@ public interface IBuyerService extends ICommonService<Buyer> {
      * @param key
      * @return
      */
-    List<Buyer> findByTbIdOrNickName(String key);
+    @GetMapping("/findByTbIdOrNickName/{key}")
+    List<Buyer> findByTbIdOrNickName(@PathVariable("key") String key);
 
     /**
      * 添加或更新用户信息
      * @param buyer
      * @return
      */
+    @PostMapping
     boolean insertOrUpdate(Buyer buyer);
 
 }

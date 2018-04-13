@@ -1,6 +1,6 @@
 package com.honeypotato.dao;
 
-import com.honeypotato.common.bean.order.Buyer;
+import com.honeypotato.common.dto.order.Buyer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
