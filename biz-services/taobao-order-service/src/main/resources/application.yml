@@ -4,4 +4,4 @@ spring:
   profiles:
     active: dev
   application:
-    name: taobao-order-service
+    name: taobao-order-service-v1

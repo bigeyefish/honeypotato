@@ -25,9 +25,28 @@ public class Buyer {
     /* 支付总金额 */
     private double payAmount;
 
+    /* 成功订单总量 */
+    private int orderQty;
+
     private Date createDt;
 
     private Date updateDt;
+
+    /* 备注 */
+    private String mark;
+
+    public Buyer() {
+        this.createDt = new Date();
+        this.updateDt = new Date();
+    }
+
+    public int getOrderQty() {
+        return orderQty;
+    }
+
+    public void setOrderQty(int orderQty) {
+        this.orderQty = orderQty;
+    }
 
     public String getId() {
         return id;
@@ -102,8 +121,19 @@ public class Buyer {
                 ", tbNickName='" + tbNickName + '\'' +
                 ", channel=" + channel +
                 ", payAmount=" + payAmount +
+                ", orderQty=" + orderQty +
                 ", createDt=" + createDt +
                 ", updateDt=" + updateDt +
+                ", mark='" + mark + '\'' +
                 '}';
     }
+
+    public String getMark() {
+        return mark;
+    }
+
+    public void setMark(String mark) {
+        this.mark = mark;
+    }
+
 }
