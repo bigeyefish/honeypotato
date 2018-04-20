@@ -17,12 +17,37 @@ import java.util.List;
 @Service
 public class BuyerService {
 
-    @Autowired
-    private BuyerRepository buyerRepository;
+    private final BuyerRepository buyerRepository;
 
+    @Autowired
+    public BuyerService(BuyerRepository buyerRepository) {
+        this.buyerRepository = buyerRepository;
+    }
+
+    /**
+     * 删除购买者信息
+     * @param id 主键
+     */
+    void deleteBuyId(String id) {
+        buyerRepository.deleteById(id);
+    }
+
+    /**
+     * 根据淘宝id或淘宝昵称查询购买者信息
+     * @param key 淘宝id或昵称
+     * @return 购买者列表
+     */
     public List<Buyer> findByTbIdOrNickName(String key) {
-//        buyerRepository.findAll();
-        return null;
+        return buyerRepository.findByTbIdOrNickName(key);
+    }
+
+    /**
+     * 根据淘宝id查询购买者信息
+     * @param tbId 淘宝id
+     * @return 购买者数据
+     */
+    public Buyer findByTbId(String tbId) {
+        return buyerRepository.findByTbId(tbId);
     }
 
     /**
@@ -31,7 +56,7 @@ public class BuyerService {
      * @return 新增返回true 修改返回false
      */
     public boolean insertOrUpdateFromTb(Buyer buyer) {
-        Assert.state(buyer.getTbId() != null && buyer.getTbNickName() != null, "淘宝账号和淘宝昵称不能为空");
+        Assert.state(buyer != null && buyer.getTbId() != null && buyer.getTbNickName() != null, "淘宝账号和淘宝昵称不能为空");
         Buyer buyer1 = buyerRepository.findByTbId(buyer.getTbId());
 
         if (null != buyer1) {
@@ -39,9 +64,11 @@ public class BuyerService {
             buyer1.setOrderQty(buyer1.getOrderQty() + 1);
             buyer1.setPayAmount(buyer1.getPayAmount() + buyer.getPayAmount());
             buyer1.setUpdateDt(new Date());
+            buyerRepository.save(buyer1);
             return false;
         } else {
             buyer.setChannel(Constant.OrderChannel.TAOBAO);
+            buyer.setOrderQty(1);
             buyerRepository.insert(buyer);
             return true;
         }
