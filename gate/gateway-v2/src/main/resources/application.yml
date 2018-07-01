@@ -1,0 +1,6 @@
+server:
+  port: 9002
+eureka:
+  instance:
+    status-page-url: /actuator/info
+    health-check-url: /actuator/health
