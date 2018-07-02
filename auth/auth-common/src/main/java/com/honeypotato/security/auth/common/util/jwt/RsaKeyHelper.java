@@ -39,7 +39,7 @@ public class RsaKeyHelper {
      * @return
      * @throws Exception
      */
-    private Key getRSAKey(byte[] keyByte, String type) throws Exception {
+    public Key getRSAKey(byte[] keyByte, String type) throws Exception {
         X509EncodedKeySpec spec = new X509EncodedKeySpec(keyByte);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         if (RSA_KEY_PUB.equals(type)) {
