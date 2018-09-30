@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>auth-common</module>
+        <module>auth-client</module>
     </modules>
 
 
