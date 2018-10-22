@@ -9,11 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+
     <artifactId>auth</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>auth-common</module>
         <module>auth-client</module>
+        <module>auth-server</module>
     </modules>
 
 

@@ -1,6 +1,26 @@
 server:
-  port: 9002
-eureka:
-  instance:
-    status-page-url: /actuator/info
-    health-check-url: /actuator/health
+  port: 8002
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gateway
+  cloud:
+    consul:
+      enabled: true
+      port: 8500
+      discovery:
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+        register: false
+        enabled: true
+    gateway:
+      routes:
+        - id: auth
+          uri: lb://auth
+          order: 8000
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2

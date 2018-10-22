@@ -1,6 +1,6 @@
 package com.honeypotato.service;
 
-import com.honeypotato.common.iservice.order.IBuyerService;
+import com.honeypotato.userservice.iservice.order.IBuyerService;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

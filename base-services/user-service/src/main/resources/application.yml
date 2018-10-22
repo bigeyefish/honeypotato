@@ -1,8 +1,21 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: user-service
-eureka:
+  cloud:
+    consul:
+      enabled: true
+      port: 8500
+      discovery:
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+        register: false
+        enabled: true
+#        acl-token: 70cb3d3e-2b56-375c-a8a9-424a972a6c43
+auth:
   client:
-    service-url:
-      defaultZone:
-        http://ali-server1:9000/eureka,http://ali-server2:9000/eureka
+    secret: 123456
+server:
+  port: 9001

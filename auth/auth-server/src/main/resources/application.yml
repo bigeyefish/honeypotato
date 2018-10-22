@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: auth-server
+  cloud:
+    consul:
+      port: 8500
+      discovery:
+        enabled: true
+        register: true
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 5s
+        instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+        acl-token: 70cb3d3e-2b56-375c-a8a9-424a972a6c43
+server:
+  port: 8001

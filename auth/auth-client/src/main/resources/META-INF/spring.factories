@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration = \
+  com.honeypotato.auth.client.configuration.DefaultConfiguration
